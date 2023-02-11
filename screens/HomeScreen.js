@@ -1,8 +1,17 @@
 import { View, Text, TextInput } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { TextInputMask } from 'react-native-masked-text'
 
 const HomeScreen = () => {
+  const maskCardNumber = "**** **** **** ****";
+  const maskExpiry = "[00]/[00]";
+  const maskCVV = "[000]";
+
+  const [cardNumber, setCardNumber] = useState("")
+  const [expiryDate, setExpiryDate] = useState("")
+  const [cvv, setCvv] = useState("")
+
   return (
     <View style={{ paddingHorizontal: 16 }}>
       <Text style={{ fontSize: 22, alignSelf: "center", marginVertical: 24 }}>
@@ -18,12 +27,15 @@ const HomeScreen = () => {
             paddingHorizontal: 20,
             height: 50,
             justifyContent: "center",
-            borderRadius:5
+            borderRadius: 5,
           }}
         >
-          <TextInput
+          <TextInputMask
+            type={'credit-card'} 
             style={{ fontSize: 20 }}
-            placeholder="**********"
+            placeholder={maskCardNumber}
+            value = {cardNumber}
+            onChangeText = {value => setCardNumber(value)}
             keyboardType="numeric"
           />
         </View>
@@ -39,13 +51,19 @@ const HomeScreen = () => {
               paddingHorizontal: 20,
               height: 45,
               justifyContent: "center",
-              borderRadius:5
+              borderRadius: 5,
             }}
           >
-            <TextInput
+            <TextInputMask
+              type={'datetime'}
+              options={{
+                format: 'MM/YY'
+              }}
               style={{ fontSize: 18 }}
               placeholder="MM/YY"
               keyboardType="numeric"
+              value={expiryDate}
+              onChangeText={value =>setExpiryDate(value)}
             />
           </View>
         </View>
@@ -58,19 +76,28 @@ const HomeScreen = () => {
               paddingHorizontal: 20,
               height: 45,
               justifyContent: "center",
-              borderRadius:5
+              borderRadius: 5,
             }}
           >
             <TextInput
               style={{ fontSize: 18 }}
               placeholder="***"
+              maxLength={3}
+              secureTextEntry
               keyboardType="numeric"
             />
           </View>
         </View>
       </View>
 
-      <View style={{ backgroundColor: "#0e3092", marginVertical: 70, marginHorizontal:25, borderRadius:10 }}>
+      <View
+        style={{
+          backgroundColor: "#0e3092",
+          marginVertical: 70,
+          marginHorizontal: 25,
+          borderRadius: 10,
+        }}
+      >
         <Text
           style={{
             alignSelf: "center",
