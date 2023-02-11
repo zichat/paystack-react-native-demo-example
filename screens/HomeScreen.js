@@ -18,6 +18,7 @@ const HomeScreen = () => {
             paddingHorizontal: 20,
             height: 50,
             justifyContent: "center",
+            borderRadius:5
           }}
         >
           <TextInput
@@ -36,8 +37,9 @@ const HomeScreen = () => {
               borderColor: "#000",
               borderWidth: 1,
               paddingHorizontal: 20,
-              height: 40,
+              height: 45,
               justifyContent: "center",
+              borderRadius:5
             }}
           >
             <TextInput
@@ -54,8 +56,9 @@ const HomeScreen = () => {
               borderColor: "#000",
               borderWidth: 1,
               paddingHorizontal: 20,
-              height: 40,
+              height: 45,
               justifyContent: "center",
+              borderRadius:5
             }}
           >
             <TextInput
@@ -67,7 +70,7 @@ const HomeScreen = () => {
         </View>
       </View>
 
-      <View style={{ backgroundColor: "#0e3092", marginVertical: 70, marginHorizontal:25, borderRadius:15 }}>
+      <View style={{ backgroundColor: "#0e3092", marginVertical: 70, marginHorizontal:25, borderRadius:10 }}>
         <Text
           style={{
             alignSelf: "center",
